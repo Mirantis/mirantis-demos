@@ -33,14 +33,6 @@ Below are the steps needed to setup the demo environment.
 1. Install helm-client on your laptop.
    See [Install Guide](https://github.com/kubernetes/helm/blob/master/docs/install.md).
 
-1. Install helm-apply plugin for helm
-
-   ```bash
-   git clone https://github.com/Mirantis/k8s-apps/
-   cd k8s-apps
-   helm plugin install helm-apply
-   ```
-
 1. Go to apps.twitter.com and "Create a New App"
 1. Retrieve the following infomration from the newly created Twitter App:
    * Consumer Key (API Key)
