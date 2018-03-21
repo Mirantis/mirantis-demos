@@ -8,7 +8,7 @@ Key benefits:
   multiple clouds
 - Improved time to market through ability to quickly roll out changes
 
-## Preparation and deploy Steps
+## Preparation and deployment
 Below are the steps needed to setup the demo environment.
 
 ### Initial prep with GCP, helm and Twitter API
