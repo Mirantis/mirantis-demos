@@ -96,7 +96,7 @@ Below are the steps needed to setup the demo environment.
    ```bash
    helm install -f values.yaml -f twitter-api.yaml -f gke-clusters.yaml \
       -f docker-hub.yaml -f external-ips.yaml mirantisworkloads/rollout \
-      --timeout 900
+      --timeout 900 --version 0.8.2
    ```
 
 ## Demo time
