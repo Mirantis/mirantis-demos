@@ -33,14 +33,6 @@ Below are the steps needed to setup the demo environment.
 1. Install helm-client on your laptop.
    See [Install Guide](https://github.com/kubernetes/helm/blob/master/docs/install.md).
 
-1. Install helm-apply plugin for helm
-
-   ```bash
-   git clone https://github.com/Mirantis/k8s-apps/
-   cd k8s-apps
-   helm plugin install helm-apply
-   ```
-
 1. Go to apps.twitter.com and "Create a New App"
 1. Retrieve the following infomration from the newly created Twitter App:
    * Consumer Key (API Key)
@@ -61,7 +53,7 @@ Below are the steps needed to setup the demo environment.
 1. Deploy K8s clusters on GCP
 
    ```bash
-    ./deploy-k8s.sh
+    ./deploy-k8s.sh up
    ```
 
 1. Setup kubectl to utilize frontend k8s cluster
@@ -104,7 +96,7 @@ Below are the steps needed to setup the demo environment.
    ```bash
    helm install -f values.yaml -f twitter-api.yaml -f gke-clusters.yaml \
       -f docker-hub.yaml -f external-ips.yaml mirantisworkloads/rollout \
-      --timeout 900
+      --timeout 900 --version 0.8.2
    ```
 
 ## Demo time
