@@ -1,0 +1,118 @@
+rbac:
+  enabled: true
+
+
+helmApplyConfig:
+  repos:
+    mirantis: https://mirantisworkloads.storage.googleapis.com
+
+  clusters:
+    frontend:
+      context: frontend
+      namespace: ${ENV}
+      # externalIP is the external IP running k8s node
+    backend:
+      context: backend
+      namespace: ${ENV}
+
+  releases:
+    tweeviz-ui-${ENV}:
+      chart: mirantis/tweeviz_ui
+      cluster: frontend
+      wait: true
+      dependencies:
+        tweeviz_api: tweeviz-api-${ENV}
+      parameters:
+        image:
+          repository: samos123/
+          tag: ${VERSION}
+
+    tweeviz-api-${ENV}:
+      chart: mirantis/tweeviz_api
+      cluster: backend
+      wait: true
+      dependencies:
+        hdfs: hdfs-${ENV}
+
+    tweepub-${ENV}:
+      chart: mirantis/tweepub
+      cluster: backend
+      dependencies:
+        kafka: kafka-${ENV}
+
+    tweetics-${ENV}:
+      chart: mirantis/tweetics
+      cluster: backend
+      dependencies:
+        zookeeper: zookeeper-${ENV}
+        kafka: kafka-${ENV}
+        spark: spark-${ENV}
+        hdfs: hdfs-${ENV}
+
+    spark-${ENV}:
+      chart: mirantis/spark
+      cluster: backend
+      dependencies:
+        zookeeper: zookeeper-${ENV}
+
+    kafka-${ENV}:
+      chart: mirantis/kafka
+      cluster: backend
+      dependencies:
+        zookeeper: zookeeper-${ENV}
+      parameters:
+        replicas: 3
+
+    zookeeper-${ENV}:
+      chart: mirantis/zookeeper
+      cluster: backend
+
+    hdfs-${ENV}:
+      chart: mirantis/hdfs
+      cluster: backend
+
+
+# Docker repository and credentials are set in docker-hub.yaml
+docker:
+  # Tag that will be used for rollback
+  stableTag: v1
+
+gerrit:
+  service:
+    type: LoadBalancer
+
+spinnaker:
+  ui:
+    service:
+      type: LoadBalancer
+  rbac:
+    enabled: true
+  providers:
+    docker:
+      accounts:
+      - name: dockerhub
+        address: https://index.docker.io
+        repositories:
+          - mirantisworkloads/rollout-jenkins-slave
+
+  jenkins:
+    Master:
+      service:
+        type: LoadBalancer
+      rbac:
+        enabled: true
+      InstallPlugins:
+      - kubernetes:0.11
+      - workflow-aggregator:2.5
+      - workflow-job:2.17
+      - credentials-binding:1.14
+      - git:3.7.0
+      - gerrit-trigger:2.27.3
+    Agent:
+      Cpu: "400m"
+      Memory: "512Mi"
+      image:
+        repository: mirantisworkloads/
+        name: rollout-jenkins-slave
+        tag: 2.2.0
+
