@@ -26,7 +26,7 @@ Below are the steps needed to setup the demo environment.
 1. Setup firewall rules in newly created project to allow all ingress
 
    ```bash
-   gcloud beta compute firewall-rules create allow-all --direction=INGRESS \
+   gcloud compute firewall-rules create allow-all --direction=INGRESS \
       --priority=1000 --network=default --allow=all --source-ranges=0.0.0.0/0
    ```
 
