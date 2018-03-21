@@ -61,7 +61,7 @@ Below are the steps needed to setup the demo environment.
 1. Deploy K8s clusters on GCP
 
    ```bash
-    ./deploy-k8s.sh
+    ./deploy-k8s.sh up
    ```
 
 1. Setup kubectl to utilize frontend k8s cluster

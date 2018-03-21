@@ -324,4 +324,4 @@ function helm_init() {
 #################### End
 
 main $@
-log "demo-gke.sh $@ successfully finished"
+log "deploy-k8s.sh $@ successfully finished"
