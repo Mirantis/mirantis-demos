@@ -3,3 +3,9 @@ docker:
   password: CHANGETO_DOCKERHUB_PASSWORD
   repository: CHANGETO_DOCKERHUB_USERNAME
 
+helmApplyConfig:
+  releases:
+    tweeviz-ui-${ENV}:
+      parameters:
+        image:
+          repository: CHANGETO_DOCKERHUB_USERNAME/

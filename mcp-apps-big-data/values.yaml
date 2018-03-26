@@ -24,7 +24,6 @@ helmApplyConfig:
         tweeviz_api: tweeviz-api-${ENV}
       parameters:
         image:
-          repository: samos123/
           tag: ${VERSION}
 
     tweeviz-api-${ENV}:
