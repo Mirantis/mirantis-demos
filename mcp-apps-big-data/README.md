@@ -17,6 +17,13 @@ Below are the steps needed to setup the demo environment.
 1. Create a new project in GCP. Throughout the steps we will use mcp-apps-5
 1. Setup the gcloud cli by following one of the
    [gcloud cli Quickstarts](https://cloud.google.com/sdk/docs/quickstarts)
+
+1. Workaround to fix issue with newer gcloud CLI
+
+   ```bash
+   gcloud components update --version 179.0.0
+   ```
+
 1. Set gcloud to use the created project
 
    ```bash
