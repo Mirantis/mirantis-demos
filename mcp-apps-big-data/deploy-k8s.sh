@@ -46,7 +46,7 @@ function main() {
 
     # backend cluster configs
     backend_cluster_name=backend
-    backend_cluster_flavor=n1-standard-8
+    backend_cluster_flavor=n1-standard-4
 
 
     if [ "up" == "$1" ]; then

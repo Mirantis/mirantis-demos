@@ -14,6 +14,7 @@ Below are the steps needed to setup the demo environment.
 ### Initial prep with GCP, helm and Twitter API
 
 1. Create a Google Cloud Platform(GCP) account
+1. Visit https://console.cloud.google.com/kubernetes/ to activate the APIs
 1. Create a new project in GCP. Throughout the steps we will use mcp-apps-5
 1. Setup the gcloud cli by following one of the
    [gcloud cli Quickstarts](https://cloud.google.com/sdk/docs/quickstarts)
