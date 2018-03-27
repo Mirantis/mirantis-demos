@@ -68,8 +68,7 @@ Below are the steps needed to setup the demo environment.
 
    ```bash
    # Download kube config and set it as current context in ~/.kube/config
-   # substitute mcp-apps-5 for actual project id that you used
-   gcloud container clusters get-credentials frontend --zone us-west1-c --project mcp-apps-5
+   gcloud container clusters get-credentials frontend --zone us-west1-c
    # Verify that following command succeeds and shows 1 node
    kubectl get nodes
    ```
