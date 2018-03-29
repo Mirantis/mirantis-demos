@@ -55,7 +55,7 @@ Below are the steps needed to setup the demo environment.
 1. First clone the mirantis-demos repistory
 
    ```bash
-   git clone https://github.com/samos123/mirantis-demos.git
+   git clone https://github.com/Mirantis/mirantis-demos.git
    cd mirantis-demos/mcp-apps-big-data
    ```
 1. Deploy K8s clusters on GCP
