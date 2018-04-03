@@ -94,6 +94,7 @@ Below are the steps needed to setup the demo environment.
    ```bash
    cp docker-hub.yaml.example docker-hub.yaml
    # modify the values starting with CHANGETO
+   # ensure that the trailing / does NOT get deleted
    vim docker-hub.yaml
    ```
 
